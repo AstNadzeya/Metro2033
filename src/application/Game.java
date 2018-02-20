@@ -12,7 +12,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class Main extends Application{
+public class Game extends Application{
 	
 	
 	private GameMenu gameMenu;
