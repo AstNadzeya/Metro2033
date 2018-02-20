@@ -13,11 +13,6 @@ import javafx.util.Duration;
 
 public class Character extends Pane{
 	
-//	int healthPoint;
-//	int stamina;
-//	int movingSpeed;
-	
-	//Image mainCharacter = new Image(getClass().getResourceAsStream("pGGbv.png"));
 	ImageView imageView;
 	int columns = 12;
 	int count = 12;
@@ -27,13 +22,7 @@ public class Character extends Pane{
 	int height = 159;
 	private boolean needPr = false;
 	
-	public boolean getNeedPr(){
-		return needPr;
-	}
 	
-	public void setNeedPr(boolean need){
-		needPr = need;
-	}
 	
 	Rectangle removeRect = null;
 	public SpriteAnimation animation;

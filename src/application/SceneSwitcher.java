@@ -31,6 +31,7 @@ public class SceneSwitcher {
 	public ArrayList<Node> platformNodes = new ArrayList<Node>();
 	private ArrayList<Node> switchMapNodesF = new ArrayList<Node>();
 	private ArrayList<Node> switchMapNodesB = new ArrayList<Node>(); 
+	private ArrayList<Node> switchMapNodesE = new ArrayList<Node>(); 
 	private int currMap = 0;
 	private Pane currRoot = new Pane();
 	Group group = new Group();
@@ -39,6 +40,7 @@ public class SceneSwitcher {
 	Image image = new Image(as);
 	ImageView imageView = new ImageView(image);
 	Character player = new Character(imageView);
+	Stage stage = new Stage();
 
 	///////////////////////////////
 	HashMap<KeyCode, Boolean> keys = new HashMap<>();
@@ -113,6 +115,12 @@ public class SceneSwitcher {
 					Node forward = createEntity(j * 16, i * 16, 16, 16, Color.RED);
 					platformNodes.add(forward);
 					switchMapNodesF.add(forward);
+					break;
+				 case '8':
+					Node exit = createEntity(j * 16, i * 16, 16, 16, Color.GREY);
+					platformNodes.add(exit);
+					switchMapNodesE.add(exit);
+					break;
 					
 				}
 			}
@@ -180,7 +188,16 @@ public class SceneSwitcher {
 						return;
 					}
 				}
-			}			
+			}		
+			
+			for(Node exit: switchMapNodesE){
+				if(player.getBoundsInParent().intersects(exit.getBoundsInParent())){
+					currRoot.getChildren().clear();
+					currRoot.getChildren().addAll(new GameMenu(stage));
+						return;
+					
+				}
+			}		
 			
 			
 			for (Node platform : platformNodes){
