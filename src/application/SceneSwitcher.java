@@ -44,6 +44,7 @@ public class SceneSwitcher {
 
 	///////////////////////////////
 	HashMap<KeyCode, Boolean> keys = new HashMap<>();
+	
 	AnimationTimer timer = new AnimationTimer() {
 		@Override
 		public void handle(long now) {
